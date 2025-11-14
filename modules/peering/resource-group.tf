@@ -33,6 +33,7 @@ module "resource_group_requester" {
   tags = merge(
     local.module_tags,
     var.tags,
+    var.requester_options.tags,
   )
 }
 
@@ -66,5 +67,6 @@ module "resource_group_accepter" {
   tags = merge(
     local.module_tags,
     var.tags,
+    var.accepter_options.tags,
   )
 }

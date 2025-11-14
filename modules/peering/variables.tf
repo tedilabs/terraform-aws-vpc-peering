@@ -9,7 +9,6 @@ variable "requester" {
   (Required) The configuration of the requester VPC. `requester` as defined below.
     (Required) `vpc` - The ID of the requester VPC.
     (Optional) `region` - The region of the VPC with which you are creating the VPC Peering request. Defaults to the region of the requester provider.
-  account.
   EOF
   type = object({
     vpc    = string
@@ -22,10 +21,11 @@ variable "requester_options" {
   description = <<EOF
   (Optional) The requester options of the VPC Peering Connection. `requester_options` as defined below.
     (Optional) `allow_remote_vpc_dns_resolution` - Whether to allow a requester VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the accepter VPC. Defaults to `false`.
-  account.
+    (Optional) `tags` - A map of tags to assign to the requester VPC Peering resources.
   EOF
   type = object({
     allow_remote_vpc_dns_resolution = optional(bool, false)
+    tags                            = optional(map(string), {})
   })
   default  = {}
   nullable = false
@@ -36,7 +36,6 @@ variable "accepter" {
   (Required) The configuration of the accepter VPC. `accepter` as defined below.
     (Required) `vpc` - The ID of the VPC with which you are creating the VPC Peering Connection.
     (Optional) `region` - The region of the VPC with which you are accepting the VPC Peering request. Defaults to the region of the accepter provider.
-  account.
   EOF
   type = object({
     vpc    = string
@@ -49,10 +48,11 @@ variable "accepter_options" {
   description = <<EOF
   (Optional) The accepter options of the VPC Peering Connection. `accepter_options` as defined below.
     (Optional) `allow_remote_vpc_dns_resolution` - Whether to allow a accepter VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the requester VPC. Defaults to `false`.
-  account.
+    (Optional) `tags` - A map of tags to assign to the accepter VPC Peering resources.
   EOF
   type = object({
     allow_remote_vpc_dns_resolution = optional(bool, false)
+    tags                            = optional(map(string), {})
   })
   default  = {}
   nullable = false

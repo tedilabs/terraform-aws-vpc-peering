@@ -81,6 +81,7 @@ resource "aws_vpc_peering_connection" "this" {
     },
     local.module_tags,
     var.tags,
+    var.requester_options.tags,
   )
 }
 
@@ -117,6 +118,7 @@ resource "aws_vpc_peering_connection_accepter" "this" {
     },
     local.module_tags,
     var.tags,
+    var.accepter_options.tags,
   )
 }
 

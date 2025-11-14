@@ -30,7 +30,9 @@ output "requester" {
 
 output "requester_options" {
   description = "The requester options of the VPC Peering Connection."
-  value       = var.requester_options
+  value = {
+    allow_remote_vpc_dns_resolution = aws_vpc_peering_connection_options.requester.requester[0].allow_remote_vpc_dns_resolution
+  }
 }
 
 output "accepter" {
@@ -45,5 +47,7 @@ output "accepter" {
 
 output "accepter_options" {
   description = "The accepter options of the VPC Peering Connection."
-  value       = var.accepter_options
+  value = {
+    allow_remote_vpc_dns_resolution = aws_vpc_peering_connection_options.accepter.accepter[0].allow_remote_vpc_dns_resolution
+  }
 }
