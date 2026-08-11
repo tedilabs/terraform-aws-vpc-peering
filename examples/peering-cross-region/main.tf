@@ -3,7 +3,8 @@ provider "aws" {
 }
 
 module "vpc_one" {
-  source = "tedilabs/network/aws//modules/vpc"
+  source  = "tedilabs/network/aws//modules/vpc"
+  version = "~> 1.2.0"
 
   name = "one"
   ipv4_cidrs = [
@@ -20,7 +21,8 @@ module "vpc_one" {
 }
 
 module "vpc_two" {
-  source = "tedilabs/network/aws//modules/vpc"
+  source  = "tedilabs/network/aws//modules/vpc"
+  version = "~> 1.2.0"
 
   region = "ap-northeast-2"
   name   = "two"
@@ -45,7 +47,7 @@ module "vpc_two" {
 module "peering" {
   source = "../../modules/peering"
   # source  = "tedilabs/vpc-peering/aws//modules/peering"
-  # version = "~> 0.2.0"
+  # version = "~> 0.1.0"
 
   providers = {
     aws.requester = aws

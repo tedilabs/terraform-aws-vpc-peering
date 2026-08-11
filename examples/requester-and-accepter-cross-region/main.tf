@@ -3,7 +3,8 @@ provider "aws" {
 }
 
 module "vpc_use1" {
-  source = "tedilabs/network/aws//modules/vpc"
+  source  = "tedilabs/network/aws//modules/vpc"
+  version = "~> 1.2.0"
 
   region = "us-east-1"
 
@@ -22,7 +23,8 @@ module "vpc_use1" {
 }
 
 module "vpc_apne2" {
-  source = "tedilabs/network/aws//modules/vpc"
+  source  = "tedilabs/network/aws//modules/vpc"
+  version = "~> 1.2.0"
 
   region = "ap-northeast-2"
 
@@ -48,7 +50,7 @@ module "vpc_apne2" {
 module "requester" {
   source = "../../modules/requester"
   # source  = "tedilabs/vpc-peering/aws//modules/requester"
-  # version = "~> 0.2.0"
+  # version = "~> 0.1.0"
 
   region = "us-east-1"
 
@@ -77,7 +79,7 @@ module "requester" {
 module "accepter" {
   source = "../../modules/accepter"
   # source  = "tedilabs/vpc-peering/aws//modules/accepter"
-  # version = "~> 0.2.0"
+  # version = "~> 0.1.0"
 
   region = "ap-northeast-2"
 
