@@ -3,7 +3,8 @@ provider "aws" {
 }
 
 module "vpc_one" {
-  source = "tedilabs/network/aws//modules/vpc"
+  source  = "tedilabs/network/aws//modules/vpc"
+  version = "~> 1.2.0"
 
   name = "one"
   ipv4_cidrs = [
@@ -20,7 +21,8 @@ module "vpc_one" {
 }
 
 module "vpc_two" {
-  source = "tedilabs/network/aws//modules/vpc"
+  source  = "tedilabs/network/aws//modules/vpc"
+  version = "~> 1.2.0"
 
   name = "two"
   ipv4_cidrs = [
@@ -44,7 +46,7 @@ module "vpc_two" {
 module "requester" {
   source = "../../modules/requester"
   # source  = "tedilabs/vpc-peering/aws//modules/requester"
-  # version = "~> 0.2.0"
+  # version = "~> 0.1.0"
 
   name = "one/two"
 
@@ -70,7 +72,7 @@ module "requester" {
 module "accepter" {
   source = "../../modules/accepter"
   # source  = "tedilabs/vpc-peering/aws//modules/accepter"
-  # version = "~> 0.2.0"
+  # version = "~> 0.1.0"
 
   name = "one/two"
 
