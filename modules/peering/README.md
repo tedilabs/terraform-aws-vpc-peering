@@ -10,28 +10,28 @@ This module creates following resources.
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.12 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6.12 |
 
 ## Providers
 
 | Name | Version |
-|------|---------|
-| <a name="provider_aws.accepter"></a> [aws.accepter](#provider\_aws.accepter) | 6.20.0 |
-| <a name="provider_aws.requester"></a> [aws.requester](#provider\_aws.requester) | 6.20.0 |
+| ---- | ------- |
+| <a name="provider_aws.accepter"></a> [aws.accepter](#provider\_aws.accepter) | >= 6.12 |
+| <a name="provider_aws.requester"></a> [aws.requester](#provider\_aws.requester) | >= 6.12 |
 
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_resource_group_accepter"></a> [resource\_group\_accepter](#module\_resource\_group\_accepter) | tedilabs/misc/aws//modules/resource-group | ~> 0.12.0 |
 | <a name="module_resource_group_requester"></a> [resource\_group\_requester](#module\_resource\_group\_requester) | tedilabs/misc/aws//modules/resource-group | ~> 0.12.0 |
 
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [aws_vpc_peering_connection.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_peering_connection) | resource |
 | [aws_vpc_peering_connection_accepter.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_peering_connection_accepter) | resource |
 | [aws_vpc_peering_connection_options.accepter](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_peering_connection_options) | resource |
@@ -45,7 +45,7 @@ This module creates following resources.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_accepter"></a> [accepter](#input\_accepter) | (Required) The configuration of the accepter VPC. `accepter` as defined below.<br/>    (Required) `vpc` - The ID of the VPC with which you are creating the VPC Peering Connection.<br/>    (Optional) `region` - The region of the VPC with which you are accepting the VPC Peering request. Defaults to the region of the accepter provider. | <pre>object({<br/>    vpc    = string<br/>    region = optional(string)<br/>  })</pre> | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | (Required) Desired name for the VPC Peering resources. | `string` | n/a | yes |
 | <a name="input_requester"></a> [requester](#input\_requester) | (Required) The configuration of the requester VPC. `requester` as defined below.<br/>    (Required) `vpc` - The ID of the requester VPC.<br/>    (Optional) `region` - The region of the VPC with which you are creating the VPC Peering request. Defaults to the region of the requester provider. | <pre>object({<br/>    vpc    = string<br/>    region = optional(string)<br/>  })</pre> | n/a | yes |
@@ -58,7 +58,7 @@ This module creates following resources.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_accepter"></a> [accepter](#output\_accepter) | The accepter information including AWS Account ID, Region, VPC ID. |
 | <a name="output_accepter_options"></a> [accepter\_options](#output\_accepter\_options) | The accepter options of the VPC Peering Connection. |
 | <a name="output_id"></a> [id](#output\_id) | The ID of the VPC Peering Connection. |

@@ -9,26 +9,26 @@ This module creates following resources.
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.12 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6.12 |
 
 ## Providers
 
 | Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.20.0 |
+| ---- | ------- |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 6.12 |
 
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | tedilabs/misc/aws//modules/resource-group | ~> 0.12.0 |
 
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [aws_vpc_peering_connection_accepter.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_peering_connection_accepter) | resource |
 | [aws_vpc_peering_connection_options.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_peering_connection_options) | resource |
 | [aws_caller_identity.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
@@ -37,7 +37,7 @@ This module creates following resources.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_name"></a> [name](#input\_name) | (Required) Desired name for the VPC Peering resources. | `string` | n/a | yes |
 | <a name="input_peering_connection"></a> [peering\_connection](#input\_peering\_connection) | (Required) The information of the VPC Peering Connection to accept. The given filters must match exactly one VPC peering connection. `peering_connection` as defined below.<br/>    (Optional) `id` - The VPC Peering Connection ID to manage.<br/>    (Optional) `requester` - The information of the requester VPC. `requester` as defined below.<br/>      (Optional) `vpc` - The ID of the requester VPC.<br/>      (Optional) `region` - The region of the VPC with which you are creating the VPC Peering Connection.<br/>      (Optional) `account` - The AWS account ID of the owner of the peer VPC.<br/>    (Optional) `accepter` - The information of the accepter VPC. `accepter_vpc` as defined below.<br/>      (Optional) `vpc` - The ID of the accepter VPC.<br/>  account. | <pre>object({<br/>    id = optional(string)<br/>    requester = optional(object({<br/>      vpc     = optional(string)<br/>      region  = optional(string)<br/>      account = optional(string)<br/><br/>      ipv4_cidr = optional(string)<br/>    }), {})<br/>    accepter = optional(object({<br/>      vpc = optional(string)<br/><br/>      ipv4_cidr = optional(string)<br/>    }), {})<br/>  })</pre> | n/a | yes |
 | <a name="input_allow_remote_vpc_dns_resolution"></a> [allow\_remote\_vpc\_dns\_resolution](#input\_allow\_remote\_vpc\_dns\_resolution) | (Optional) Whether to allow a accepter VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the requester VPC. Defaults to `false`. | `bool` | `false` | no |
@@ -49,7 +49,7 @@ This module creates following resources.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_accepter"></a> [accepter](#output\_accepter) | The accepter information including AWS Account ID, Region, VPC ID. |
 | <a name="output_allow_remote_vpc_dns_resolution"></a> [allow\_remote\_vpc\_dns\_resolution](#output\_allow\_remote\_vpc\_dns\_resolution) | Whether to allow a accepter VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the requester VPC. |
 | <a name="output_id"></a> [id](#output\_id) | The ID of the VPC Peering Connection. |
