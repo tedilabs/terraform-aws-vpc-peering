@@ -26,8 +26,8 @@ This module creates following resources.
 
 | Name | Source | Version |
 | ---- | ------ | ------- |
-| <a name="module_resource_group_accepter"></a> [resource\_group\_accepter](#module\_resource\_group\_accepter) | tedilabs/misc/aws//modules/resource-group | ~> 0.12.0 |
-| <a name="module_resource_group_requester"></a> [resource\_group\_requester](#module\_resource\_group\_requester) | tedilabs/misc/aws//modules/resource-group | ~> 0.12.0 |
+| <a name="module_resource_group_accepter"></a> [resource\_group\_accepter](#module\_resource\_group\_accepter) | tedilabs/misc/aws//modules/resource-group | ~> 0.13.0 |
+| <a name="module_resource_group_requester"></a> [resource\_group\_requester](#module\_resource\_group\_requester) | tedilabs/misc/aws//modules/resource-group | ~> 0.13.0 |
 
 ## Resources
 

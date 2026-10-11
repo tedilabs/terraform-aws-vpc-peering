@@ -12,7 +12,7 @@ locals {
 
 module "resource_group_requester" {
   source  = "tedilabs/misc/aws//modules/resource-group"
-  version = "~> 0.12.0"
+  version = "~> 0.13.0"
 
   providers = {
     aws = aws.requester
@@ -35,11 +35,15 @@ module "resource_group_requester" {
     var.tags,
     var.requester_options.tags,
   )
+
+  telemetry = {
+    enabled = false
+  }
 }
 
 module "resource_group_accepter" {
   source  = "tedilabs/misc/aws//modules/resource-group"
-  version = "~> 0.12.0"
+  version = "~> 0.13.0"
 
   providers = {
     aws = aws.accepter
@@ -69,4 +73,8 @@ module "resource_group_accepter" {
     var.tags,
     var.accepter_options.tags,
   )
+
+  telemetry = {
+    enabled = false
+  }
 }
