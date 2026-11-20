@@ -36,16 +36,16 @@ locals {
   requester = {
     account = data.aws_vpc_peering_connection.this.owner_id
     region  = data.aws_vpc_peering_connection.this.requester_region
-    vpc     = aws_vpc_peering_connection_accepter.this.vpc_id
+    vpc     = data.aws_vpc_peering_connection.this.vpc_id
     ipv4_cidrs = [
       for cidr in data.aws_vpc_peering_connection.this.cidr_block_set :
       cidr.cidr_block
     ]
   }
   accepter = {
-    account = aws_vpc_peering_connection_accepter.this.peer_owner_id
+    account = data.aws_vpc_peering_connection.this.peer_owner_id
     region  = aws_vpc_peering_connection_accepter.this.peer_region
-    vpc     = aws_vpc_peering_connection_accepter.this.peer_vpc_id
+    vpc     = data.aws_vpc_peering_connection.this.peer_vpc_id
     ipv4_cidrs = [
       for cidr in data.aws_vpc_peering_connection.this.peer_cidr_block_set :
       cidr.cidr_block
