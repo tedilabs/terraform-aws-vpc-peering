@@ -65,7 +65,7 @@ module "peering" {
   }
 
 
-  ## Acccepter
+  ## Accepter
   accepter = {
     vpc = module.vpc_two.id
   }

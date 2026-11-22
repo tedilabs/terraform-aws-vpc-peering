@@ -66,7 +66,7 @@ module "peering" {
   }
 
 
-  ## Acccepter
+  ## Accepter
   accepter = {
     vpc    = module.vpc_two.id
     region = "ap-northeast-2"
