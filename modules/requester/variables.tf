@@ -15,7 +15,6 @@ variable "requester" {
   description = <<EOF
   (Required) The configuration of the requester VPC. `requester` as defined below.
     (Required) `vpc` - The ID of the requester VPC.
-  account.
   EOF
   type = object({
     vpc = string

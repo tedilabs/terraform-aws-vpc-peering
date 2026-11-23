@@ -12,10 +12,11 @@ variable "peering_connection" {
     (Optional) `requester` - The information of the requester VPC. `requester` as defined below.
       (Optional) `vpc` - The ID of the requester VPC.
       (Optional) `region` - The region of the VPC with which you are creating the VPC Peering Connection.
-      (Optional) `account` - The AWS account ID of the owner of the peer VPC.
-    (Optional) `accepter` - The information of the accepter VPC. `accepter_vpc` as defined below.
+      (Optional) `account` - The AWS account ID of the owner of the requester VPC.
+      (Optional) `ipv4_cidr` - The primary IPv4 CIDR block of the requester VPC.
+    (Optional) `accepter` - The information of the accepter VPC. `accepter` as defined below.
       (Optional) `vpc` - The ID of the accepter VPC.
-  account.
+      (Optional) `ipv4_cidr` - The primary IPv4 CIDR block of the accepter VPC.
   EOF
   type = object({
     id = optional(string)
