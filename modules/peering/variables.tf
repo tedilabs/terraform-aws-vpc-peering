@@ -47,7 +47,7 @@ variable "accepter" {
 variable "accepter_options" {
   description = <<EOF
   (Optional) The accepter options of the VPC Peering Connection. `accepter_options` as defined below.
-    (Optional) `allow_remote_vpc_dns_resolution` - Whether to allow a accepter VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the requester VPC. Defaults to `false`.
+    (Optional) `allow_remote_vpc_dns_resolution` - Whether to allow an accepter VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the requester VPC. Defaults to `false`.
     (Optional) `tags` - A map of tags to assign to the accepter VPC Peering resources.
   EOF
   type = object({
@@ -66,7 +66,7 @@ variable "tags" {
 }
 
 variable "module_tags_enabled" {
-  description = "(Optional) Whether to create AWS Resource Tags for the module informations."
+  description = "(Optional) Whether to create AWS Resource Tags for the module information."
   type        = bool
   default     = true
   nullable    = false
@@ -79,7 +79,7 @@ variable "module_tags_enabled" {
 
 variable "resource_group" {
   description = <<EOF
-  (Optional) A configurations of Resource Group for this module. `resource_group` as defined below.
+  (Optional) A configuration of Resource Group for this module. `resource_group` as defined below.
     (Optional) `enabled` - Whether to create Resource Group to find and group AWS resources which are created by this module. Defaults to `true`.
     (Optional) `name` - The name of Resource Group. A Resource Group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`. If not provided, a name will be generated using the module name and instance name.
     (Optional) `description` - The description of Resource Group. Defaults to `Managed by Terraform.`.
